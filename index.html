@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>JSP7Exo2</title>
 </head>
-<body id="text">
+<body>
   <h1>Orgueil et Préjugés</h1>
   <h2>Jane Austen</h2>
   <h2>Chapitre 1</h2>
@@ -40,29 +40,26 @@
     <p>- Soyez persuadée, ma chère, que lorsqu’il y en aura vingt, je les visiterai tous. »</p>
     <p>Le caractère de M. Bennet était un si bizarre mélange de réserve, de caprice et d’humeur satirique que vingt-trois ans de mariage avaient été insuffisants pour le bien faire connaître à sa femme ; celui de Mme Bennet était moins difficile à définir ; c’était une femme sans esprit ni délicatesse ; dès qu’on la contrariait, elle s’imaginait avoir mal aux nerfs ; son unique affaire était de chercher à marier ses filles, ses seuls plaisirs les nouvelles et les visites.</p>
   </div>
-    <button type="button" onclick="changeText('bold')">Mettre en gras</button>
-    <button type="button" onclick="changeText('color','green')">Changer de couleur</button>
-    <button type="button" onclick="changeText('zoomIn')">Agrandir</button>
-    <button type="button" onclick="changeText('reset')">Reset</button>
+      <button onclick="textBold()">Mettre en gras</button>
+      <button onclick="textColor()">Changer de couleur</button>
+      <button onclick="textUpSize()">Agrandir</button>
   <script>
-    function changeText(action, color = 'black') {
-      var text = document.getElementById('text');
-      switch (action) {
-        case 'bold':
-            text.style.fontWeight = action;
-        break;
-        case 'zoomIn':
-            text.style.fontSize = '30px';
-        break;
-        default:
-            text.style.fontWeight = 'normal';
-            text.style.fontStyle = 'normal';
-            text.style.fontSize = '16px'
-        case 'color': 
-            text.style.color = color;
-        break;
+    var paragraph = document.getElementsByTagName('P'); // récupère tous les paragraphes du document
+    function textBold() {
+      for (paragraphIndex = 0; paragraphIndex < paragraph.length; paragraphIndex++) {
+        paragraph[paragraphIndex].style.fontWeight = 'bold';
       }
     }
-    </script>
+    function textColor() {
+      for (paragraphIndex = 0; paragraphIndex < paragraph.length; paragraphIndex++) {
+        paragraph[paragraphIndex].style.color = 'red';
+      }
+    }
+    function textUpSize() {
+      for (paragraphIndex = 0; paragraphIndex < paragraph.length; paragraphIndex++) {
+        paragraph[paragraphIndex].style.fontSize = '20px';
+      }
+    }
+  </script>
 </body>
 </html>
